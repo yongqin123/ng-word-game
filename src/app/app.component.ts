@@ -19,7 +19,6 @@ export class HomeComponent {
   standalone: true,
   imports: [RouterOutlet, HomeComponent],
   templateUrl: './app.component.html',
-  template: '<h1>Hello world</h1>',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
