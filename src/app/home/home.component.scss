@@ -1,3 +1,46 @@
 #gameTitle {
+    text-align: center;
+    //width: 100%;
+    width: 800px;
+    height: 700px;
+    border: 2px solid black;
+    background-color: whitesmoke;
+    //margin :  auto;
+}
+
+#gameTitle {
+
+}
+
+
+#title {
+    //background-color: black;
     
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    text-decoration:wavy;
+    font-size: 50px;
+}
+
+.button-menu {
+    margin: 0 auto;
+    margin-top: 80px;
+    border: 3px solid black;
+    width: 250px;
+    padding: 20px;
+    border-radius: 25px;
+    color: black;
+
+}
+
+a {
+    text-decoration: none;    
+}
+
+
+.button-menu:hover {
+    color:gold;
+    background-color: black;
+    border: 4px solid gold;
 }

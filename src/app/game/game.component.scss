@@ -1,0 +1,49 @@
+.draggable {
+    touch-action: none;
+    user-select: none;
+    //display: flex;
+    //align-items: center;
+    text-align: center;
+    vertical-align: center;
+    //justify-content: center;
+    display: inline-block;
+    font-size: 40px;
+    margin-right:30px;
+    //margin-top: 90px;
+    //padding-top: 30px;
+    //background-color: red;
+  }
+  
+  .dropzone {
+    display: flex;
+    align-items: center;
+    //justify-content: center;
+    border: none;
+    border-bottom: 2px solid #000;
+    transition: background-color 0.3s;
+    font-size: 50px;
+    display: inline-block;
+    margin-right:30px;
+  }
+  
+  .dropzone.dropped {
+    border-color: green;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+#wordlist {
+    margin-top: 200px;
+}
+
+#next {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 65px;
+  display: none;
+}
