@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
+import { generate, count } from "random-words";
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class WordService {
-  words: string[] = ['aware', 'deluxe', 'run', 'taste', 'unknown', 'create', 'will', 'jam'];
+  words: string[] = ['aware', 'deluxe', 'run', 'taste', 'unknown', 'create', 'will', 'jam', 'honor', 'sticky', 'ballot', 'album', 'house', 'law', 'zero'];
 
   wordList: String[] = [];
   
