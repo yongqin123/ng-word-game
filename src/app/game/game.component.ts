@@ -55,7 +55,7 @@ export class GameComponent  {
       
 
       window.onload = function() {
-        var minute = 2;
+        var minute = 8;
         var sec = 59;
         setInterval(function() {
           (document.getElementById("time") as HTMLSpanElement).innerHTML = " " + minute + "min " + sec + "sec";
@@ -79,6 +79,7 @@ export class GameComponent  {
             minute = 0;
             sec = 0;
           }
+          
 
       
 
@@ -134,60 +135,120 @@ export class GameComponent  {
         console.log("word3: " + ans_word3);
         if (ans_word1 == word1) {
           for (let i=0; i < elements_word1.length; i++) {
-            (elements_word1[i] as HTMLInputElement).style.backgroundColor = "green";
+            //(elements_word1[i] as HTMLInputElement).style.backgroundColor = "green";
           }
           correct_word_boolean["wordone"] = true;
         }
         if (ans_word2 == word2) {
           for (let i=0; i < elements_word2.length; i++) {
-            (elements_word2[i] as HTMLInputElement).style.backgroundColor = "green";
+            //(elements_word2[i] as HTMLInputElement).style.backgroundColor = "green";
           }
           correct_word_boolean["wordtwo"] = true;
         }
         if (ans_word3 == word3) {
           for (let i=0; i < elements_word3.length; i++) {
-            (elements_word3[i] as HTMLInputElement).style.backgroundColor = "green";
+            //(elements_word3[i] as HTMLInputElement).style.backgroundColor = "green";
           }
           correct_word_boolean["wordthree"] = true;
           
         }
+        
 
         if (correct_word_boolean["wordone"] == true && correct_word_boolean["wordtwo"] == true && correct_word_boolean["wordthree"] == true) {
           console.log("You Win");
         }
         if (correct_word_boolean["wordone"] == true) {
-          (document.getElementById("score") as HTMLHeadElement).innerHTML = "10";
-          localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
+          var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
+          if (multiplier == 0) {
+            multiplier = 1;
+          }
+          (document.getElementById("score") as HTMLHeadElement).innerHTML = (parseInt(localStorage.getItem('score') ?? "0") +  (10 * multiplier * 0.5)).toString();
 
+          const elements = document.getElementsByClassName('word1');
+          for (let i = 0; i < elements.length; i++) {
+            const input = elements[i] as HTMLInputElement;
+            input.remove();
+          }
+          const elements_img = document.getElementsByClassName('wordoneImg');
+          for (let i = 0; i < elements_img .length; i++) {
+            const input = elements_img[i] as HTMLImageElement;
+            input.src = "../../assets/tileCorrect.png";
+          }      
+        
+          localStorage.setItem('score', (parseInt(localStorage.getItem('score') ?? "0") +  (10 * multiplier * 0.5)).toString());
+          console.log(localStorage.getItem('score'));
+          correct_word_boolean["wordone"] = false;
+          localStorage.setItem("wordone","1");
+          //ans_word1 = "";
         }
         if (correct_word_boolean["wordtwo"] == true) {
-          (document.getElementById("score") as HTMLHeadElement).innerHTML = "10";
-          localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
+          var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
+          if (multiplier == 0) {
+            multiplier = 1;
+          }
+          (document.getElementById("score") as HTMLHeadElement).innerHTML = (parseInt(localStorage.getItem('score') ?? "0") +  (10 * multiplier * 0.5)).toString();
 
+          
+          const elements = document.getElementsByClassName('word2');
+          for (let i = 0; i < elements.length; i++) {
+            const input = elements[i] as HTMLInputElement;
+            input.remove();
+          }  
+          const elements_img = document.getElementsByClassName('wordtwoImg');
+          for (let i = 0; i < elements_img .length; i++) {
+            const input = elements_img[i] as HTMLImageElement;
+            input.src = "../../assets/tileCorrect.png";
+          }         
+        
+          localStorage.setItem('score', (parseInt(localStorage.getItem('score') ?? "0") +  (10 * multiplier * 0.5)).toString());
+          console.log(localStorage.getItem('score'));
+          correct_word_boolean["wordtwo"] = false;
+          localStorage.setItem("wordtwo","1");
+          //ans_word2 = "";
         }
         if (correct_word_boolean["wordthree"] == true) {
-          (document.getElementById("score") as HTMLHeadElement).innerHTML = "10";
-          localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
+          var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
+          if (multiplier == 0) {
+            multiplier = 1;
+          }
+          (document.getElementById("score") as HTMLHeadElement).innerHTML = (parseInt(localStorage.getItem('score') ?? "0") +  (10 * multiplier * 0.5)).toString();
 
+          
+          const elements = document.getElementsByClassName('word3');
+          for (let i = 0; i < elements.length; i++) {
+            const input = elements[i] as HTMLInputElement;
+            input.remove();
+          }
+          const elements_img = document.getElementsByClassName('wordthreeImg');
+          for (let i = 0; i < elements_img .length; i++) {
+            const input = elements_img[i] as HTMLImageElement;
+            input.src = "../../assets/tileCorrect.png";
+          }          
+        
+          localStorage.setItem('score', (parseInt(localStorage.getItem('score') ?? "0") +  (10 * multiplier * 0.5)).toString());
+          console.log(localStorage.getItem('score'));
+          correct_word_boolean["wordthree"] = false;
+          localStorage.setItem("wordthree","1");
+          //ans_word3 = "";
         }
-        if (correct_word_boolean["wordone"] == true &&  correct_word_boolean["wordtwo"] == true) {
-          (document.getElementById("score") as HTMLHeadElement).innerHTML = "20";
-          localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
+       // if (correct_word_boolean["wordone"] == true &&  correct_word_boolean["wordtwo"] == true) {
+       //   (document.getElementById("score") as HTMLHeadElement).innerHTML = "20";
+        //  localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
 
-        }
-        if (correct_word_boolean["wordone"] == true &&  correct_word_boolean["wordthree"] == true) {
-          (document.getElementById("score") as HTMLHeadElement).innerHTML = "20";
-          localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
+       // }
+        //if (correct_word_boolean["wordone"] == true &&  correct_word_boolean["wordthree"] == true) {
+        //  (document.getElementById("score") as HTMLHeadElement).innerHTML = "20";
+        //  localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
 
-        }
-        if (correct_word_boolean["wordtwo"] == true &&  correct_word_boolean["wordthree"] == true) {
-          (document.getElementById("score") as HTMLHeadElement).innerHTML = "20";
-          localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
+        //}
+        //if (correct_word_boolean["wordtwo"] == true &&  correct_word_boolean["wordthree"] == true) {
+        //  (document.getElementById("score") as HTMLHeadElement).innerHTML = "20";
+        //  localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
 
-        }
-        if (correct_word_boolean["wordone"] == true &&  correct_word_boolean["wordtwo"] == true &&  correct_word_boolean["wordthree"] == true) {
-          (document.getElementById("score") as HTMLHeadElement).innerHTML = "30";
-          localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
+        //}
+        if ((localStorage.getItem("wordone")) == "1" &&  (localStorage.getItem("wordtwo")) == "1" &&  (localStorage.getItem("wordthree")) == "1") {
+          //(document.getElementById("score") as HTMLHeadElement).innerHTML = "30";
+          //localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
           //this.addToLeaderboard(localStorage.getItem("name"), localStorage.getItem("score")  );
           
           var next = document.getElementById("next");

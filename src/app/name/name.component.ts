@@ -10,7 +10,7 @@ import { GameComponent } from '../game/game.component';
 })
 export class NameComponent {
   submitName() {
-    localStorage.setItem("name", (document.getElementById("name") as HTMLInputElement).value);
+    localStorage.setItem("name", (document.getElementById("namee") as HTMLInputElement).value);
     window.location.href = "/game";
   }
   

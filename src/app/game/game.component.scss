@@ -19,15 +19,19 @@
     align-items: center;
     //justify-content: center;
     border: none;
-    border-bottom: 2px solid #000;
+    //border-bottom: 2px solid #000;
     transition: background-color 0.3s;
     font-size: 50px;
     display: inline-block;
     margin-right:30px;
+    //background-color: transparent;
+  border: none;
+  color: inherit; /* keeps text visible using parent color */
+  outline: none;
   }
   
   .dropzone.dropped {
-    border-color: green;
+    //border-color: green;
   }
   
   .container {
@@ -46,4 +50,12 @@
   border-radius: 10px;
   width: 65px;
   display: none;
+}
+
+h1 {
+  color: white;
+}
+
+text {
+  color: white;
 }
