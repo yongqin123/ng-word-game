@@ -4,7 +4,9 @@
             width: 1000px; 
             height: 800px;">
     <div style="position: relative;">
-        <input type="text" id="namee" style="position: absolute;" >
+        <input type="text" id="namee" style="position: absolute;border: none;
+  color: inherit; /* keeps text visible using parent color */
+  outline: none;" >
 
         <img src="../../assets/name.png" id="name" />
         <img style="position: absolute;" src="../../assets/next.png" (click)="submitName()" id="name-next" />

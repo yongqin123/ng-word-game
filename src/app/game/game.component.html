@@ -1,14 +1,30 @@
-<div style="background-image: url('../../assets/background.png'); 
-             
-            
-            width: 1100px; 
-            height: 1000px;">
-    <h1 style="display: inline;"    >Name: </h1><h1 style="display: inline;" id="name">{{name}}</h1><br><br>
-    <h1 style="display: inline;"    >Score: </h1><h1 style="display: inline;" id="score">0</h1><br><br>
-    <h1 style="display: inline;">Time:</h1><h1 style="display: inline;" id="time"></h1>
-    <hr>
+<div style="background-image: url('../../assets/background.png'); width: 1100px; height: 950px;">
+    <div id="next-container">
+        <img id="next" (click)="sendPostRequest()"  src="../../assets/back.png"/>
+    </div>
+    <div style="position: relative; ">
+        <img style="position:absolute; margin-top:10px; margin-left: 100px;" src= "../../assets/board.png" />
+        <img style="position:absolute; margin-left: 140px;" src="../../assets/wordName.png" />
+        <h1  style="position:absolute; margin-top:50px; margin-left: 180px;"  id="name">{{name}}</h1>
+    </div>
+    <div style="position: relative; ">
+        <img style="position:absolute; left: 500px; margin-top:10px;" src= "../../assets/board.png" />
+        <img style="position:absolute; left: 540px;" src="../../assets/SCORE.png" />
+        <h1 style="position:absolute; left: 420px; margin-top:50px; margin-left: 180px; " id="score">0</h1>
+    </div>
+    <div style="position: relative; margin-left: 850px;">
+        <img style="position:absolute;margin-top:10px;" src= "../../assets/board.png" />
+        <img style="position:absolute; left: 50px;" src="../../assets/TIME.png" />
+        <h1 style="position:absolute; display: inline;margin-top:50px;margin-left:30px;" id="time"></h1>
+    </div>
+    
+    
     <br>
-    <div style="margin-left: 150px;">
+    <br>
+    <br>
+    <br><br>
+    <br><br><br>
+    <div style="margin-left: 150px; top:200px">
     <h1 style="display:inline;text-decoration: underline;">1st Word</h1><span> (starts with: {{word1[0]}}, ends with: {{word1[word1.length-1]}})</span>
     <br>
     
@@ -44,27 +60,23 @@
             </div>
         }
     </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <hr>
-        <div>
-        <h1 style="text-decoration: underline;display: inline;">Letters (Do not place letters together in the boxes) </h1><br>
-        @for (letter of letters; track letter) {
+        
+        
+            <div style="margin-left:100px">
+            <h1 style="text-decoration: underline;display: inline;">Letters (Do not place letters together in the boxes) </h1><br>
             
-        <h1 class="draggable" style="width: 40px; height: 40px;">
-            {{letter}} 
-        </h1> 
-            
-        }
-        </div>
+                
+                @for (letter of letters; track letter) {
+                <h1 style="position:absolute" class="draggable" style="width: 40px; height: 40px;">
+                    {{letter}} 
+                </h1> 
+                    
+                }
+            </div>
         <br>
         <br>
         <br>
-        <div id="next-container">
-            <h1 id="next" (click)="sendPostRequest()"  >Next</h1>
-        </div>
+        
     
     
 </div>

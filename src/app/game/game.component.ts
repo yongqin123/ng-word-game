@@ -56,7 +56,7 @@ export class GameComponent  {
 
       window.onload = function() {
         var minute = 8;
-        var sec = 59;
+        var sec = 30;
         setInterval(function() {
           (document.getElementById("time") as HTMLSpanElement).innerHTML = " " + minute + "min " + sec + "sec";
           sec--;

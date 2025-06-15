@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
 import { NameComponent } from './name/name.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
     path: 'leaderboard',
     component: LeaderboardComponent,
     title: 'Leaderboard',
+  },
+  {
+    path: 'instructions',
+    component: InstructionsComponent,
+    title: 'Instructions',
   }
   
   ,];
