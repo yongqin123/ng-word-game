@@ -34,13 +34,17 @@ export class GameComponent  {
   title = 'my-angular-app'; 
   correct_word_boolean = {wordone:false, wordtwo:false, wordthree:false};
   
-  sendPostRequest() {
+  sendPostRequestToHome() {
     const postData = { name : localStorage.getItem('name'), score : localStorage.getItem('score') }; // Replace with your data
     this.leaderboardService.addLeaderboard(postData).subscribe()
     window.location.href = "/";
   }
   
-    
+  sendPostRequestToGame() {
+    const postData = { name : localStorage.getItem('name'), score : localStorage.getItem('score') }; // Replace with your data
+    this.leaderboardService.addLeaderboard(postData).subscribe()
+    window.location.href = "/game";
+  }  
   
   
     ngOnInit(): void { 
@@ -52,11 +56,13 @@ export class GameComponent  {
     initializeInteract( word1: string,  word2: string,  word3: string, correct_word_boolean: {wordone:boolean, wordtwo:boolean, wordthree:boolean}): void {
       var namee = localStorage.getItem('name');
       var score = localStorage.getItem('score');
-      
+      localStorage.setItem("wordone","0");
+      localStorage.setItem("wordtwo","0");
+      localStorage.setItem("wordthree","0");
 
       window.onload = function() {
-        var minute = 8;
-        var sec = 30;
+        var minute = 6;
+        var sec = 1;
         setInterval(function() {
           (document.getElementById("time") as HTMLSpanElement).innerHTML = " " + minute + "min " + sec + "sec";
           sec--;
@@ -80,6 +86,14 @@ export class GameComponent  {
             sec = 0;
           }
           
+          if (minute == 0 && sec == 0) {
+            console.log("game end");
+            var game = document.getElementById("game");
+            (game as HTMLDivElement).remove();
+
+            var gameover = document.getElementById("gameover");
+            (gameover as HTMLDivElement).removeAttribute("hidden");
+          }
 
       
 
@@ -165,12 +179,23 @@ export class GameComponent  {
           (document.getElementById("score") as HTMLHeadElement).innerHTML = (parseInt(localStorage.getItem('score') ?? "0") +  (10 * multiplier * 0.5)).toString();
 
           const elements = document.getElementsByClassName('word1');
+          //const elements = document.getElementsByClassName('wordone');
+          console.log(elements);
+          console.log(elements.length)
           for (let i = 0; i < elements.length; i++) {
             const input = elements[i] as HTMLInputElement;
-            input.remove();
+            console.log(input);
+            input.classList.remove("dropzone");
+            input.innerHTML='';
           }
+          //while(elements.length > 0) {
+          //  const input = elements[0] as HTMLInputElement;
+          //  input.parentNode?.removeChild(elements[0])
+          //}
+
+
           const elements_img = document.getElementsByClassName('wordoneImg');
-          for (let i = 0; i < elements_img .length; i++) {
+          for (let i = 0; i < elements_img.length; i++) {
             const input = elements_img[i] as HTMLImageElement;
             input.src = "../../assets/tileCorrect.png";
           }      
@@ -179,7 +204,7 @@ export class GameComponent  {
           console.log(localStorage.getItem('score'));
           correct_word_boolean["wordone"] = false;
           localStorage.setItem("wordone","1");
-          //ans_word1 = "";
+          ans_word1 = "";
         }
         if (correct_word_boolean["wordtwo"] == true) {
           var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
@@ -192,7 +217,9 @@ export class GameComponent  {
           const elements = document.getElementsByClassName('word2');
           for (let i = 0; i < elements.length; i++) {
             const input = elements[i] as HTMLInputElement;
-            input.remove();
+            input.classList.remove("dropzone");
+            input.innerHTML='';
+
           }  
           const elements_img = document.getElementsByClassName('wordtwoImg');
           for (let i = 0; i < elements_img .length; i++) {
@@ -204,7 +231,7 @@ export class GameComponent  {
           console.log(localStorage.getItem('score'));
           correct_word_boolean["wordtwo"] = false;
           localStorage.setItem("wordtwo","1");
-          //ans_word2 = "";
+          ans_word2 = "";
         }
         if (correct_word_boolean["wordthree"] == true) {
           var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
@@ -217,7 +244,9 @@ export class GameComponent  {
           const elements = document.getElementsByClassName('word3');
           for (let i = 0; i < elements.length; i++) {
             const input = elements[i] as HTMLInputElement;
-            input.remove();
+            input.classList.remove("dropzone");
+            input.innerHTML='';
+
           }
           const elements_img = document.getElementsByClassName('wordthreeImg');
           for (let i = 0; i < elements_img .length; i++) {
@@ -229,7 +258,7 @@ export class GameComponent  {
           console.log(localStorage.getItem('score'));
           correct_word_boolean["wordthree"] = false;
           localStorage.setItem("wordthree","1");
-          //ans_word3 = "";
+          ans_word3 = "";
         }
        // if (correct_word_boolean["wordone"] == true &&  correct_word_boolean["wordtwo"] == true) {
        //   (document.getElementById("score") as HTMLHeadElement).innerHTML = "20";
@@ -251,12 +280,16 @@ export class GameComponent  {
           //localStorage.setItem('score', (document.getElementById("score") as HTMLHeadElement).innerHTML);
           //this.addToLeaderboard(localStorage.getItem("name"), localStorage.getItem("score")  );
           
-          var next = document.getElementById("next");
-          (next as HTMLHeadElement).style.display = "block";
-          namee = localStorage.getItem('name');
-          score = localStorage.getItem('score');
-          console.log(namee);
+          //var next = document.getElementById("next");
+          
+          console.log("namee");
           console.log(score);
+          console.log("game end");
+          var game = document.getElementById("game");
+          (game as HTMLDivElement).remove();
+
+          var gameover = document.getElementById("gameover");
+          (gameover as HTMLDivElement).removeAttribute("hidden");
         }
 
         

@@ -1,6 +1,6 @@
 <div style="background-image: url('../../assets/background.png'); width: 1100px; height: 950px;">
     <div id="next-container">
-        <img id="next" (click)="sendPostRequest()"  src="../../assets/back.png"/>
+        <img id="next" (click)="sendPostRequestToHome()"  src="../../assets/back.png"/>
     </div>
     <div style="position: relative; ">
         <img style="position:absolute; margin-top:10px; margin-left: 100px;" src= "../../assets/board.png" />
@@ -18,65 +18,71 @@
         <h1 style="position:absolute; display: inline;margin-top:50px;margin-left:30px;" id="time"></h1>
     </div>
     
-    
-    <br>
-    <br>
-    <br>
-    <br><br>
-    <br><br><br>
-    <div style="margin-left: 150px; top:200px">
-    <h1 style="display:inline;text-decoration: underline;">1st Word</h1><span> (starts with: {{word1[0]}}, ends with: {{word1[word1.length-1]}})</span>
-    <br>
-    
-        @for (letter1 of word1 ;track letter1) {
-            <div style="position: relative; display:inline;">
-                <img class="wordoneImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
-        <input  style="position: absolute; opacity: 0;" readonly class="dropzone word1" style="width: 100px; height: 100px;background-color: transparent;"  />
-            </div>
-        }
-    </div>   
+    <div id="game">
         <br>
         <br>
-    <div style="margin-left: 150px;">
-        <h1 style="display:inline;text-decoration: underline;">2nd Word</h1><span> (starts with: {{word2[0]}}, ends with: {{word2[word2.length-1]}})</span>
         <br>
-    
-        @for (letter2 of word2 ;track letter2) {
-        <div style="position: relative; display:inline;">
-                <img class="wordtwoImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
-        <input  style="position: absolute; opacity: 0;" readonly class="dropzone word2" style="width: 100px; height: 100px; background-color: transparent;"  />
-            </div>
-        }
-    </div>
+        <br><br>
+        <br><br><br>
+        <div style="margin-left: 150px; top:200px">
+        <h1 style="display:inline;text-decoration: underline;">1st Word</h1><span> (starts with: {{word1[0]}}, ends with: {{word1[word1.length-1]}})</span>
         <br>
-        <br>
-    <div style="margin-left: 150px;">
-        <h1 style="display:inline;text-decoration: underline;">3rd Word</h1><span> (starts with: {{word3[0]}}, ends with: {{word3[word3.length-1]}})</span>
-        <br>
-        @for (letter3 of word3 ;track letter3) {
-        <div style="position: relative; display:inline;">
-                <img class="wordthreeImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
-        <input  style="position: absolute; opacity: 0;" readonly class="dropzone word3" style="width: 100px; height: 100px; background-color: transparent;"  />
-            </div>
-        }
-    </div>
-        
-        
-            <div style="margin-left:100px">
-            <h1 style="text-decoration: underline;display: inline;">Letters (Do not place letters together in the boxes) </h1><br>
             
-                
-                @for (letter of letters; track letter) {
-                <h1 style="position:absolute" class="draggable" style="width: 40px; height: 40px;">
-                    {{letter}} 
-                </h1> 
-                    
-                }
-            </div>
-        <br>
-        <br>
-        <br>
+            @for (letter1 of word1 ;track letter1) {
+                <div style="position: relative; display:inline;">
+                    <img class="wordoneImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
+                <input  style="position: absolute; opacity: 0;" readonly class="dropzone word1" style="width: 100px; height: 100px;background-color: transparent;"  />
+                </div>
+            }
+        </div>   
+            <br>
+            <br>
+        <div style="margin-left: 150px;">
+            <h1 style="display:inline;text-decoration: underline;">2nd Word</h1><span> (starts with: {{word2[0]}}, ends with: {{word2[word2.length-1]}})</span>
+            <br>
         
+            @for (letter2 of word2 ;track letter2) {
+            <div style="position: relative; display:inline;">
+                    <img class="wordtwoImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
+            <input  style="position: absolute; opacity: 0;" readonly class="dropzone word2" style="width: 100px; height: 100px; background-color: transparent;"  />
+                </div>
+            }
+        </div>
+            <br>
+            <br>
+        <div style="margin-left: 150px;">
+            <h1 style="display:inline;text-decoration: underline;">3rd Word</h1><span> (starts with: {{word3[0]}}, ends with: {{word3[word3.length-1]}})</span>
+            <br>
+            @for (letter3 of word3 ;track letter3) {
+            <div style="position: relative; display:inline;">
+                    <img class="wordthreeImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
+            <input  style="position: absolute; opacity: 0;" readonly class="dropzone word3" style="width: 100px; height: 100px; background-color: transparent;"  />
+                </div>
+            }
+        </div>
+            
+            
+                <div style="margin-left:100px">
+                <h1 style="text-decoration: underline;display: inline;">Letters (Do not place letters together in the boxes) </h1><br>
+                
+                    
+                    @for (letter of letters; track letter) {
+                    <h1 style="position:absolute" class="draggable" style="width: 40px; height: 40px;">
+                        {{letter}} 
+                    </h1> 
+                        
+                    }
+                </div>
+            <br>
+            <br>
+            <br>
+    </div>
+    <div hidden id="gameover" >
+        <img src="../../assets/gameover.png"style="margin-left: 250px;margin-top:150px;">
+        <br>
+        <img id="next" (click)="sendPostRequestToHome()" style="width:150px;height:150px;margin-left: 250px;" src="../../assets/home.png"/>
+        <img id="next" (click)="sendPostRequestToGame()" style="width:150px;height:150px;margin-left: 250px;" src="../../assets/rewind.png"/>
+    </div>
     
     
 </div>
