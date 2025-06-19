@@ -63,6 +63,63 @@ export class GameComponent  {
       window.onload = function() {
         var minute = 6;
         var sec = 1;
+
+        //index 0 of first word
+        const target1 = document.getElementById(word1[0]);
+        var rect = (target1 as HTMLElement).getBoundingClientRect();
+        (target1 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${280 - rect.top}px)`;
+        target1?.setAttribute('data-x', "80");
+        target1?.setAttribute('data-y', "-500");
+        document.getElementsByClassName("word1")[0].innerHTML = word1[0];
+        (target1 as HTMLElement).removeAttribute('id');
+
+        //index 2 of first word
+        const target2 = document.getElementById(word1[2]);
+        var rect = (target2 as HTMLElement).getBoundingClientRect();
+        (target2 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${-500}px)`;
+        target2?.setAttribute('data-x', "80");
+        target2?.setAttribute('data-y', "-500");
+        document.getElementsByClassName("word1")[2].innerHTML = word1[2];
+        (target2 as HTMLElement).removeAttribute('id');
+
+        //index 0 of second word
+        const target3 = document.getElementById(word2[0]);
+        var rect = (target3 as HTMLElement).getBoundingClientRect();
+        (target3 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${460 - rect.top}px)`;
+        target3?.setAttribute('data-x', "80");
+        target3?.setAttribute('data-y', "-500");
+        document.getElementsByClassName("word2")[0].innerHTML = word2[0];
+        (target3 as HTMLElement).removeAttribute('id');
+
+        //index 2 of third word
+        const target4 = document.getElementById(word2[2]);
+        var rect = (target4 as HTMLElement).getBoundingClientRect();
+        (target4 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${460 - rect.top}px)`;
+        target4?.setAttribute('data-x', "80");
+        target4?.setAttribute('data-y', "-500");
+        document.getElementsByClassName("word2")[2].innerHTML = word2[2];
+        (target4 as HTMLElement).removeAttribute('id');
+
+
+        //index 0 of third word
+        const target5 = document.getElementById(word3[0]);
+        var rect = (target5 as HTMLElement).getBoundingClientRect();
+        (target5 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${630 - rect.top}px)`;
+        target5?.setAttribute('data-x', "80");
+        target5?.setAttribute('data-y', "-500");
+        document.getElementsByClassName("word3")[0].innerHTML = word3[0];
+        (target5 as HTMLElement).removeAttribute('id');
+
+        //index 2 of third word
+        const target6 = document.getElementById(word3[2]);
+        var rect = (target6 as HTMLElement).getBoundingClientRect();
+        (target6 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${630 - rect.top}px)`;
+        target6?.setAttribute('data-x', "80");
+        target6?.setAttribute('data-y', "-500");
+        document.getElementsByClassName("word3")[2].innerHTML = word3[2];
+        (target4 as HTMLElement).removeAttribute('id');
+
+
         setInterval(function() {
           (document.getElementById("time") as HTMLSpanElement).innerHTML = " " + minute + "min " + sec + "sec";
           sec--;
@@ -105,6 +162,7 @@ export class GameComponent  {
         listeners: {
           move(event) {
             const target = event.target;
+            console.log(target);
             const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
             const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 

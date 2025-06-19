@@ -25,20 +25,22 @@
         <br><br>
         <br><br><br>
         <div style="margin-left: 150px; top:200px">
-        <h1 style="display:inline;text-decoration: underline;">1st Word</h1><span> (starts with: {{word1[0]}}, ends with: {{word1[word1.length-1]}})</span>
+        <h1 style="display:inline;font-family: 'Inter'">Word 1</h1>
         <br>
             
-            @for (letter1 of word1 ;track letter1) {
+            @for (letter1 of word1 ;let i = $index; track letter1) {
                 <div style="position: relative; display:inline;">
+                    
                     <img class="wordoneImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
-                <input  style="position: absolute; opacity: 0;" readonly class="dropzone word1" style="width: 100px; height: 100px;background-color: transparent;"  />
+                <input  style="position: absolute;" readonly class="dropzone word1 {{i}}" style="width: 100px; height: 100px;background-color: transparent;" >
+        
                 </div>
             }
         </div>   
             <br>
             <br>
         <div style="margin-left: 150px;">
-            <h1 style="display:inline;text-decoration: underline;">2nd Word</h1><span> (starts with: {{word2[0]}}, ends with: {{word2[word2.length-1]}})</span>
+            <h1 style="display:inline;font-family: 'Inter'">Word 2</h1>
             <br>
         
             @for (letter2 of word2 ;track letter2) {
@@ -51,7 +53,7 @@
             <br>
             <br>
         <div style="margin-left: 150px;">
-            <h1 style="display:inline;text-decoration: underline;">3rd Word</h1><span> (starts with: {{word3[0]}}, ends with: {{word3[word3.length-1]}})</span>
+            <h1 style="display:inline;font-family: 'Inter'">Word 3</h1>
             <br>
             @for (letter3 of word3 ;track letter3) {
             <div style="position: relative; display:inline;">
@@ -67,7 +69,7 @@
                 
                     
                     @for (letter of letters; track letter) {
-                    <h1 style="position:absolute" class="draggable" style="width: 40px; height: 40px;">
+                    <h1 id="{{letter}}" style="position:absolute" class="draggable" style="width: 40px; height: 40px;">
                         {{letter}} 
                     </h1> 
                         
