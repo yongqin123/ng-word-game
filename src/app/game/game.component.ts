@@ -72,6 +72,8 @@ export class GameComponent  {
         target1?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word1")[0].innerHTML = word1[0];
         (target1 as HTMLElement).removeAttribute('id');
+        document.getElementsByClassName("word1")[0].classList.remove("dropzone");
+        (document.getElementsByClassName("word1")[0] as HTMLElement).setAttribute("name", (target1 as HTMLElement).className.split(' ')[1]); 
 
         //index 2 of first word
         const target2 = document.getElementById(word1[2]);
@@ -81,6 +83,8 @@ export class GameComponent  {
         target2?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word1")[2].innerHTML = word1[2];
         (target2 as HTMLElement).removeAttribute('id');
+        document.getElementsByClassName("word1")[2].classList.remove("dropzone");
+        (document.getElementsByClassName("word1")[2] as HTMLElement).setAttribute("name", (target2 as HTMLElement).className.split(' ')[1]); 
 
         //index 0 of second word
         const target3 = document.getElementById(word2[0]);
@@ -90,7 +94,9 @@ export class GameComponent  {
         target3?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word2")[0].innerHTML = word2[0];
         (target3 as HTMLElement).removeAttribute('id');
-
+        (document.getElementById("box0") as HTMLInputElement).classList.remove("dropzone");
+        document.getElementsByClassName("word2")[0].classList.remove("dropzone");
+        
         //index 2 of third word
         const target4 = document.getElementById(word2[2]);
         var rect = (target4 as HTMLElement).getBoundingClientRect();
@@ -99,6 +105,7 @@ export class GameComponent  {
         target4?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word2")[2].innerHTML = word2[2];
         (target4 as HTMLElement).removeAttribute('id');
+        document.getElementsByClassName("word2")[2].classList.remove("dropzone");
 
 
         //index 0 of third word
@@ -109,6 +116,7 @@ export class GameComponent  {
         target5?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word3")[0].innerHTML = word3[0];
         (target5 as HTMLElement).removeAttribute('id');
+        document.getElementsByClassName("word3")[0].classList.remove("dropzone");
 
         //index 2 of third word
         const target6 = document.getElementById(word3[2]);
@@ -118,6 +126,7 @@ export class GameComponent  {
         target6?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word3")[2].innerHTML = word3[2];
         (target4 as HTMLElement).removeAttribute('id');
+        document.getElementsByClassName("word3")[2].classList.remove("dropzone");
 
 
         setInterval(function() {
@@ -162,7 +171,10 @@ export class GameComponent  {
         listeners: {
           move(event) {
             const target = event.target;
-            console.log(target);
+            if (target?.classList.contains("locked")) {
+              return; // prevent dragging
+            }
+            //console.log(target);
             const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
             const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
@@ -170,6 +182,9 @@ export class GameComponent  {
 
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
+
+             const parent = target.parentElement;
+            
           }
         }
       });
@@ -181,7 +196,11 @@ export class GameComponent  {
       ondragenter(event) {
         const draggableElement = event.relatedTarget;
         const dropzoneElement = event.target;
+        //dropzoneElement.classList.remove("dropZone");
         dropzoneElement.textContent = draggableElement.innerHTML;
+        //console.log(draggableElement.className.split(' ')[1]);
+        dropzoneElement.name = draggableElement.className.split(' ')[1];
+        
         const elements_word1 = document.getElementsByClassName("word1");
         const elements_word2 = document.getElementsByClassName("word2");
         const elements_word3 = document.getElementsByClassName("word3");
@@ -230,6 +249,14 @@ export class GameComponent  {
           console.log("You Win");
         }
         if (correct_word_boolean["wordone"] == true) {
+          var ele = document.getElementsByClassName("word1");
+          for (let i = 0; i < ele.length; i ++) {
+            console.log((ele[i] as HTMLInputElement).getAttribute("name"));
+            console.log(document.getElementsByClassName((ele[i] as HTMLInputElement).getAttribute("name") ?? '0')[0]);
+            document.getElementsByClassName((ele[i] as HTMLInputElement).getAttribute("name") ?? '0')[0].classList.add("locked");
+            
+          }
+        
           var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
           if (multiplier == 0) {
             multiplier = 1;
@@ -238,8 +265,8 @@ export class GameComponent  {
 
           const elements = document.getElementsByClassName('word1');
           //const elements = document.getElementsByClassName('wordone');
-          console.log(elements);
-          console.log(elements.length)
+          //console.log(elements);
+          //console.log(elements.length)
           for (let i = 0; i < elements.length; i++) {
             const input = elements[i] as HTMLInputElement;
             console.log(input);
@@ -265,6 +292,14 @@ export class GameComponent  {
           ans_word1 = "";
         }
         if (correct_word_boolean["wordtwo"] == true) {
+          var ele = document.getElementsByClassName("word2");
+          for (let i = 0; i < ele.length; i ++) {
+            console.log((ele[i] as HTMLInputElement).getAttribute("name"));
+            console.log(document.getElementsByClassName((ele[i] as HTMLInputElement).getAttribute("name") ?? '0')[0]);
+            document.getElementsByClassName((ele[i] as HTMLInputElement).getAttribute("name") ?? '0')[0].classList.add("locked");
+            
+          }
+
           var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
           if (multiplier == 0) {
             multiplier = 1;
@@ -292,6 +327,14 @@ export class GameComponent  {
           ans_word2 = "";
         }
         if (correct_word_boolean["wordthree"] == true) {
+          var ele = document.getElementsByClassName("word3");
+          for (let i = 0; i < ele.length; i ++) {
+            console.log((ele[i] as HTMLInputElement).getAttribute("name"));
+            console.log(document.getElementsByClassName((ele[i] as HTMLInputElement).getAttribute("name") ?? '0')[0]);
+            document.getElementsByClassName((ele[i] as HTMLInputElement).getAttribute("name") ?? '0')[0].classList.add("locked");
+            
+          }
+
           var multiplier = parseInt(((document.getElementById("time") as HTMLSpanElement).innerHTML).toString()[1]);
           if (multiplier == 0) {
             multiplier = 1;

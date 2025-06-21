@@ -32,7 +32,7 @@
                 <div style="position: relative; display:inline;">
                     
                     <img class="wordoneImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
-                <input  style="position: absolute;" readonly class="dropzone word1 {{i}}" style="width: 100px; height: 100px;background-color: transparent;" >
+                <input id="box{{i}}"  style="position: absolute;" readonly class="dropzone word1 {{i}}" style="width: 100px; height: 100px;background-color: transparent;" >
         
                 </div>
             }
@@ -43,10 +43,10 @@
             <h1 style="display:inline;font-family: 'Inter'">Word 2</h1>
             <br>
         
-            @for (letter2 of word2 ;track letter2) {
+            @for (letter2 of word2 ;let i = $index;track letter2) {
             <div style="position: relative; display:inline;">
                     <img class="wordtwoImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
-            <input  style="position: absolute; opacity: 0;" readonly class="dropzone word2" style="width: 100px; height: 100px; background-color: transparent;"  />
+            <input id="box{{i+3}}" style="position: absolute; opacity: 0;" readonly class="dropzone word2 {{i}}" style="width: 100px; height: 100px; background-color: transparent;"  />
                 </div>
             }
         </div>
@@ -55,10 +55,10 @@
         <div style="margin-left: 150px;">
             <h1 style="display:inline;font-family: 'Inter'">Word 3</h1>
             <br>
-            @for (letter3 of word3 ;track letter3) {
+            @for (letter3 of word3 ;;let i = $index; track letter3) {
             <div style="position: relative; display:inline;">
                     <img class="wordthreeImg" style="position: absolute; height: 100px; width: 100px;" src="../../assets/tile.png">
-            <input  style="position: absolute; opacity: 0;" readonly class="dropzone word3" style="width: 100px; height: 100px; background-color: transparent;"  />
+            <input id="box{{i+3}}" style="position: absolute; opacity: 0;" readonly class="dropzone word3 {{i}}" style="width: 100px; height: 100px; background-color: transparent;"  />
                 </div>
             }
         </div>
@@ -68,8 +68,8 @@
                 <h1 style="text-decoration: underline;display: inline;">Letters (Do not place letters together in the boxes) </h1><br>
                 
                     
-                    @for (letter of letters; track letter) {
-                    <h1 id="{{letter}}" style="position:absolute" class="draggable" style="width: 40px; height: 40px;">
+                    @for (letter of letters; let i = $index; track letter) {
+                    <h1 id="{{letter}}" name="" style="position:absolute" class="draggable letter{{i}}" style="width: 40px; height: 40px;">
                         {{letter}} 
                     </h1> 
                         
