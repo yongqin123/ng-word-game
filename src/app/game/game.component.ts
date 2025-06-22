@@ -169,23 +169,47 @@ export class GameComponent  {
       interact('.draggable')
       .draggable({
         listeners: {
+          // Collusion
           move(event) {
             const target = event.target;
             if (target?.classList.contains("locked")) {
-              return; // prevent dragging
+              return; // prevent dragging if locked
             }
-            //console.log(target);
+
+            // Calculate new proposed position
             const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
             const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
+            // Temporarily apply position
             target.style.transform = `translate(${x}px, ${y}px)`;
-
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
 
-             const parent = target.parentElement;
-            
-          }
+            // Get updated bounding box
+            const currentRect = target.getBoundingClientRect();
+            const others = document.querySelectorAll('.draggable');
+
+            for (const other of Array.from(others)) {
+              if (other === target || other.classList.contains("locked")) continue;
+
+              const otherRect = other.getBoundingClientRect();
+
+              const overlap = !(
+                currentRect.right < otherRect.left ||
+                currentRect.left > otherRect.right ||
+                currentRect.bottom < otherRect.top ||
+                currentRect.top > otherRect.bottom
+              );
+
+              if (overlap) {
+                // Revert movement if overlapping
+                target.style.transform = `translate(${parseFloat(target.getAttribute('data-x')) - event.dx}px, ${parseFloat(target.getAttribute('data-y')) - event.dy}px)`;
+                target.setAttribute('data-x', `${parseFloat(target.getAttribute('data-x')) - event.dx}`);
+                target.setAttribute('data-y', `${parseFloat(target.getAttribute('data-y')) - event.dy}`);
+                break;
+              }
+  }
+}
         }
       });
 
