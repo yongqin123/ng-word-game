@@ -67,7 +67,7 @@ export class GameComponent  {
         //index 0 of first word
         const target1 = document.getElementById(word1[0]);
         var rect = (target1 as HTMLElement).getBoundingClientRect();
-        (target1 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${280 - rect.top}px)`;
+        (target1 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${130 - rect.top}px)`;
         target1?.setAttribute('data-x', "80");
         target1?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word1")[0].innerHTML = word1[0];
@@ -78,7 +78,7 @@ export class GameComponent  {
         //index 2 of first word
         const target2 = document.getElementById(word1[2]);
         var rect = (target2 as HTMLElement).getBoundingClientRect();
-        (target2 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${-500}px)`;
+        (target2 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${130 - rect.top}px)`;
         target2?.setAttribute('data-x', "80");
         target2?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word1")[2].innerHTML = word1[2];
@@ -89,7 +89,7 @@ export class GameComponent  {
         //index 0 of second word
         const target3 = document.getElementById(word2[0]);
         var rect = (target3 as HTMLElement).getBoundingClientRect();
-        (target3 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${460 - rect.top}px)`;
+        (target3 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${260 - rect.top}px)`;
         target3?.setAttribute('data-x', "80");
         target3?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word2")[0].innerHTML = word2[0];
@@ -100,7 +100,7 @@ export class GameComponent  {
         //index 2 of third word
         const target4 = document.getElementById(word2[2]);
         var rect = (target4 as HTMLElement).getBoundingClientRect();
-        (target4 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${460 - rect.top}px)`;
+        (target4 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${260 - rect.top}px)`;
         target4?.setAttribute('data-x', "80");
         target4?.setAttribute('data-y', "-500");
         document.getElementsByClassName("word2")[2].innerHTML = word2[2];
