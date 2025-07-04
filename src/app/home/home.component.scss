@@ -8,6 +8,11 @@
     margin :  auto;
 }
 
+.button-menu-container {
+    margin-bottom: 40%;
+
+}
+
 #leaderboard {
    
     
@@ -21,17 +26,17 @@
     
     
     margin: auto;
-    margin-bottom: 40%;
+   // margin-bottom: 40%;
     text-decoration:wavy;
     font-size: 50px;
 }
 
-.button-menu {
-    margin: 0 auto;
-    margin-top: 10%;
+#start {
+    margin: auto;
+    //margin-top: 1px;
     
     width: 250px;
-    padding: 20px;
+    //  padding: 20px;
     border-radius: 25px;
     
 

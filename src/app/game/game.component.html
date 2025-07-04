@@ -1,18 +1,18 @@
 <div style="background-image: url('../../assets/background.png'); width: 1100px; height: 950px;">
-    <div id="next-container">
+    <div id="next-container" style="display: inline;">
         <img id="next" (click)="sendPostRequestToHome()"  src="../../assets/back.png"/>
     </div>
-    <div style="position: relative; ">
+    <div style="position: relative; display: inline;">
         <img style="position:absolute; margin-top:10px; margin-left: 100px;" src= "../../assets/board.png" />
         <img style="position:absolute; margin-left: 140px;" src="../../assets/wordName.png" />
         <h1  style="position:absolute; margin-top:50px; margin-left: 180px;"  id="name">{{name}}</h1>
     </div>
-    <div style="position: relative; ">
+    <div style="position: relative;  display: inline;">
         <img style="position:absolute; left: 500px; margin-top:10px;" src= "../../assets/board.png" />
         <img style="position:absolute; left: 540px;" src="../../assets/SCORE.png" />
         <h1 style="position:absolute; left: 420px; margin-top:50px; margin-left: 180px; " id="score">0</h1>
     </div>
-    <div style="position: relative; margin-left: 850px;">
+    <div style="position: relative; margin-left: 850px; display: inline;">
         <img style="position:absolute;margin-top:10px;" src= "../../assets/board.png" />
         <img style="position:absolute; left: 50px;" src="../../assets/TIME.png" />
         <h1 style="position:absolute; display: inline;margin-top:50px;margin-left:30px;" id="time"></h1>
@@ -22,8 +22,7 @@
         <br>
         <br>
         <br>
-        <br><br>
-        <br><br><br>
+        
         <div style="margin-left: 150px; top:200px">
         <h1 style="display:inline;font-family: 'Inter'">Word 1</h1>
         <br>
