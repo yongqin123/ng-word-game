@@ -1,4 +1,7 @@
-<div style="background-image: url('../../assets/background.jpg'); width: 1100px; height: 950px;">
+<div style="background-image: url('../../assets/background.jpg'); background-position: center center;
+      height: 100%; overflow: hidden;object-fit: cover;margin: 0;
+      padding: 0; height: 100vh;
+        ">
     <div id="next-container" style="display: inline;">
         <img id="next" (click)="sendPostRequestToHome()"  src="../../assets/back.png"/>
     </div>
@@ -73,7 +76,7 @@
             <br>
     </div>
     <div hidden id="gameover" >
-        <img src="../../assets/gameover.png"style="margin-left: 250px;margin-top:150px;">
+        <img src="../../assets/gameover.png"style="margin-left: 250px;margin-top:50px;width:300px;height:300px;">
         <br>
         <img id="next" (click)="sendPostRequestToHome()" style="width:150px;height:150px;margin-left: 250px;" src="../../assets/home.png"/>
         <img id="next" (click)="sendPostRequestToGame()" style="width:150px;height:150px;margin-left: 250px;" src="../../assets/rewind.png"/>
