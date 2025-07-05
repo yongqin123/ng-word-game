@@ -70,6 +70,7 @@ export class GameComponent  {
         (target1 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${130 - rect.top}px)`;
         target1?.setAttribute('data-x', "80");
         target1?.setAttribute('data-y', "-500");
+        target1?.classList.add("locked");
         document.getElementsByClassName("word1")[0].innerHTML = word1[0];
         (target1 as HTMLElement).removeAttribute('id');
         document.getElementsByClassName("word1")[0].classList.remove("dropzone");
@@ -81,6 +82,7 @@ export class GameComponent  {
         (target2 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${130 - rect.top}px)`;
         target2?.setAttribute('data-x', "80");
         target2?.setAttribute('data-y', "-500");
+        target2?.classList.add("locked");
         document.getElementsByClassName("word1")[2].innerHTML = word1[2];
         (target2 as HTMLElement).removeAttribute('id');
         document.getElementsByClassName("word1")[2].classList.remove("dropzone");
@@ -92,6 +94,7 @@ export class GameComponent  {
         (target3 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${260 - rect.top}px)`;
         target3?.setAttribute('data-x', "80");
         target3?.setAttribute('data-y', "-500");
+        target3?.classList.add("locked");
         document.getElementsByClassName("word2")[0].innerHTML = word2[0];
         (target3 as HTMLElement).removeAttribute('id');
         (document.getElementById("box0") as HTMLInputElement).classList.remove("dropzone");
@@ -103,6 +106,7 @@ export class GameComponent  {
         (target4 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${260 - rect.top}px)`;
         target4?.setAttribute('data-x', "80");
         target4?.setAttribute('data-y', "-500");
+        target4?.classList.add("locked");
         document.getElementsByClassName("word2")[2].innerHTML = word2[2];
         (target4 as HTMLElement).removeAttribute('id');
         document.getElementsByClassName("word2")[2].classList.remove("dropzone");
@@ -111,9 +115,10 @@ export class GameComponent  {
         //index 0 of third word
         const target5 = document.getElementById(word3[0]);
         var rect = (target5 as HTMLElement).getBoundingClientRect();
-        (target5 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${630 - rect.top}px)`;
+        (target5 as HTMLElement).style.transform = `translate(${190 - rect.left}px, ${380 - rect.top}px)`;
         target5?.setAttribute('data-x', "80");
         target5?.setAttribute('data-y', "-500");
+        target5?.classList.add("locked");
         document.getElementsByClassName("word3")[0].innerHTML = word3[0];
         (target5 as HTMLElement).removeAttribute('id');
         document.getElementsByClassName("word3")[0].classList.remove("dropzone");
@@ -121,9 +126,10 @@ export class GameComponent  {
         //index 2 of third word
         const target6 = document.getElementById(word3[2]);
         var rect = (target6 as HTMLElement).getBoundingClientRect();
-        (target6 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${630 - rect.top}px)`;
+        (target6 as HTMLElement).style.transform = `translate(${450 - rect.left}px, ${380 - rect.top}px)`;
         target6?.setAttribute('data-x', "80");
         target6?.setAttribute('data-y', "-500");
+        target6?.classList.add("locked");
         document.getElementsByClassName("word3")[2].innerHTML = word3[2];
         (target4 as HTMLElement).removeAttribute('id');
         document.getElementsByClassName("word3")[2].classList.remove("dropzone");
