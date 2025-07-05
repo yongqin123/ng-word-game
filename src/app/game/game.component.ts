@@ -254,6 +254,13 @@ export class GameComponent  {
         console.log("word1: " +  ans_word1);
         console.log("word2: " + ans_word2);
         console.log("word3: " + ans_word3);
+
+        if (ans_word1.length == word1.length && ans_word1 != word1) {
+          for (let i=0; i < ans_word1.length;  i++ ) {
+            (document.getElementsByClassName("wordoneImg")[i] as HTMLImageElement).src = "../../assets/wrongTile.png"
+          }
+        } 
+
         if (ans_word1 == word1) {
           for (let i=0; i < elements_word1.length; i++) {
             //(elements_word1[i] as HTMLInputElement).style.backgroundColor = "green";

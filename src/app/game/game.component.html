@@ -60,8 +60,8 @@
         </div>
             
             
-                <div style="margin-left:100px">
-                <h1 style="text-decoration: underline;display: inline;">Letters:</h1><br>
+                <div style="margin-left:100px;">
+                <h2 style="display: inline;color:white">Letters</h2><br>
                 
                     
                     @for (letter of letters; let i = $index; track letter) {
@@ -76,7 +76,7 @@
             <br>
     </div>
     <div hidden id="gameover" >
-        <img src="../../assets/gameover.png"style="margin-left: 250px;margin-top:50px;width:300px;height:300px;">
+        <img src="../../assets/gameover.png"style="margin-left: 350px;margin-top:50px;width:300px;height:300px;">
         <br>
         <img id="next" (click)="sendPostRequestToHome()" style="width:150px;height:150px;margin-left: 250px;" src="../../assets/home.png"/>
         <img id="next" (click)="sendPostRequestToGame()" style="width:150px;height:150px;margin-left: 250px;" src="../../assets/rewind.png"/>
