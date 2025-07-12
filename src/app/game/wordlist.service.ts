@@ -6,7 +6,7 @@ import { generate, count } from "random-words";
   providedIn: 'root',
 })
 export class WordService {
-  words: string[] = [ 'run', 'will', 'cat', 'dog', 'jam', 'law', 'one', 'ten', 'bird', 'tree', 'fan', 'apple', 'red', 'blue'];
+  words: string[] = [ 'run', 'will', 'cat', 'dog', 'jam', 'law', 'one', 'ten', 'bird', 'tree', 'fan', 'apple', 'red', 'blue', 'age', 'aid','bad','bean','bank','bed','bell','car'];
 
   wordList: String[] = [];
   
